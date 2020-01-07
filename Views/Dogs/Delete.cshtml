@@ -1,0 +1,94 @@
+﻿@model DogFinder.Dog
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FavFood)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FavFood)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DogStatu.StatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DogStatu.StatusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DogSize.SizeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DogSize.SizeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DogType.TypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DogType.TypeName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

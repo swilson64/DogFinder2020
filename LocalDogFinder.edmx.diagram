@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9a9240c95716430cafc597d5b46a420c" Name="Diagram1">
+        <EntityTypeShape EntityType="DogFinderModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogFinderModel.AspNetRole" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogFinderModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogFinderModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogFinderModel.AspNetUser" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogFinderModel.Dog" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogFinderModel.DogSize" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogFinderModel.DogStatu" Width="1.5" PointX="6" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogFinderModel.DogType" Width="1.5" PointX="6" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogFinderModel.UserAddress" Width="1.5" PointX="8.75" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="DogFinderModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DogFinderModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DogFinderModel.FK_Dog_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="DogFinderModel.FK_Dog_Dog" ManuallyRouted="false" />
+        <AssociationConnector Association="DogFinderModel.FK_Dog_DogSize" ManuallyRouted="false" />
+        <AssociationConnector Association="DogFinderModel.FK_Dog_DogType" ManuallyRouted="false" />
+        <AssociationConnector Association="DogFinderModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

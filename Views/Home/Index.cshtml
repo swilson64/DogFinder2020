@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>DogFinder</h1>
+    <p class="lead">DogFinder is a brand new application which will allow you to report missing dogs and also register the details of your own dog(s).</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Register your dog</h2>
+        <p>
+            Click the button below to register the details of your dog and generate a new QR code.
+        </p>
+        <p><a class="btn btn-default" href="~/Dogs/Create/">Register &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Report a lost dog</h2>
+        <p>Click the button below to fill in the details of the dog you have located.</p>
+        <p><a class="btn btn-default" href="~/Dogs/">Report Lost Dog &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>View all active lost dogs</h2>
+        <p>Click the button below to view all dogs currently missing.</p>
+        <p><a class="btn btn-default" href="~/Dogs/">Lost Dogs &raquo;</a></p>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿@model DogFinder.Dog
+@{
+    ViewBag.Title = "My Dog";
+}
+
+    <h2>QR Code for @ViewBag.DogName</h2>
+
+@{
+    var base64 = Convert.ToBase64String(ViewBag.QRCode);
+    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+}
+
+<img src="@imgSrc" height="150" width="150"/>
+
+<p>@ViewBag.qrString </p>
+
+<div>
+    @Html.ActionLink("Back to Dog Register", "Index")
+</div>
