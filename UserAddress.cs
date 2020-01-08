@@ -19,6 +19,8 @@ namespace DogFinder
         public string SecondLine { get; set; }
         public string Town { get; set; }
         public string PostCode { get; set; }
-        public int UserID { get; set; }
+        public string UserID { get; set; }
+    
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

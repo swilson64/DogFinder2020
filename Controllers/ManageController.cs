@@ -10,11 +10,13 @@ using DogFinder.Models;
 
 namespace DogFinder.Controllers
 {
+    
     [Authorize]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private DogFinder1Entities db = new DogFinder1Entities();
 
         public ManageController()
         {
@@ -64,13 +66,25 @@ namespace DogFinder.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            var userAddress = db.UserAddresses.FirstOrDefault(x => x.UserID == userId);
+
+            var addressString = "";
+            if (userAddress != null)
+            {
+                addressString = userAddress.FirstLine + " " + userAddress.SecondLine + " " + userAddress.Town + " " + userAddress.PostCode;
+            }
+
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+                HasAddress = userAddress != null ? true : false,
+                AddressID = userAddress != null ? userAddress.AddressID : 0,
+                UserID = userId,
+                Address = addressString
             };
             return View(model);
         }

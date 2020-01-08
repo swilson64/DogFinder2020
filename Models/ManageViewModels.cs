@@ -12,6 +12,10 @@ namespace DogFinder.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+        public bool HasAddress { get; set; }
+        public int AddressID { get; set; }
+        public string UserID { get; set; }
+        public string Address { get; set; }
     }
 
     public class ManageLoginsViewModel

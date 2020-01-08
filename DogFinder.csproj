@@ -173,53 +173,53 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="AspNetRole.cs">
-      <DependentUpon>LocalDogFinder.tt</DependentUpon>
+      <DependentUpon>DogFinderEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUser.cs">
-      <DependentUpon>LocalDogFinder.tt</DependentUpon>
+      <DependentUpon>DogFinderEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUserClaim.cs">
-      <DependentUpon>LocalDogFinder.tt</DependentUpon>
+      <DependentUpon>DogFinderEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUserLogin.cs">
-      <DependentUpon>LocalDogFinder.tt</DependentUpon>
+      <DependentUpon>DogFinderEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\DogsController.cs" />
     <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>LocalDogFinder.tt</DependentUpon>
+      <DependentUpon>DogFinderEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Dog.cs">
-      <DependentUpon>LocalDogFinder.tt</DependentUpon>
+      <DependentUpon>DogFinderEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\DogsController.cs" />
+    <Compile Include="DogFinderEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DogFinderEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DogFinderEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DogFinderEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DogFinderEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DogFinderEntities.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DogSize.cs">
-      <DependentUpon>LocalDogFinder.tt</DependentUpon>
+      <DependentUpon>DogFinderEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DogStatu.cs">
-      <DependentUpon>LocalDogFinder.tt</DependentUpon>
+      <DependentUpon>DogFinderEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DogType.cs">
-      <DependentUpon>LocalDogFinder.tt</DependentUpon>
+      <DependentUpon>DogFinderEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="LocalDogFinder.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocalDogFinder.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LocalDogFinder.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocalDogFinder.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LocalDogFinder.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocalDogFinder.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -227,36 +227,37 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="UserAddress.cs">
-      <DependentUpon>LocalDogFinder.tt</DependentUpon>
+      <DependentUpon>DogFinderEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\UserAddressesController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="DogFinderEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DogFinderEntities.edmx</DependentUpon>
+      <LastGenOutput>DogFinderEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DogFinderEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DogFinderEntities.edmx</DependentUpon>
+      <LastGenOutput>DogFinderEntities.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="LocalDogFinder.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LocalDogFinder.edmx</DependentUpon>
-      <LastGenOutput>LocalDogFinder.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="LocalDogFinder.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LocalDogFinder.edmx</DependentUpon>
-      <LastGenOutput>LocalDogFinder.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="LocalDogFinder.edmx">
+    <EntityDeploy Include="DogFinderEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LocalDogFinder.Designer.cs</LastGenOutput>
+      <LastGenOutput>DogFinderEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="LocalDogFinder.edmx.diagram">
-      <DependentUpon>LocalDogFinder.edmx</DependentUpon>
+    <Content Include="DogFinderEntities.edmx.diagram">
+      <DependentUpon>DogFinderEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -310,6 +311,11 @@
     <Content Include="Views\Dogs\Index.cshtml" />
     <Content Include="Views\Dogs\QRCode.cshtml" />
     <Content Include="Views\Dogs\MyDogs.cshtml" />
+    <Content Include="Views\UserAddresses\Create.cshtml" />
+    <Content Include="Views\UserAddresses\Delete.cshtml" />
+    <Content Include="Views\UserAddresses\Details.cshtml" />
+    <Content Include="Views\UserAddresses\Edit.cshtml" />
+    <Content Include="Views\UserAddresses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -76,11 +76,21 @@
         <dt>
             @Html.DisplayNameFor(model => model.DogType.TypeName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.DogType.TypeName)
         </dd>
-
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDangerous)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsDangerous)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Allergies)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Allergies)
+        </dd>
     </dl>
 
     @using (Html.BeginForm()) {

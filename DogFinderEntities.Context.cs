@@ -13,10 +13,10 @@ namespace DogFinder
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DogFinderEntities : DbContext
+    public partial class DogFinder1Entities : DbContext
     {
-        public DogFinderEntities()
-            : base("name=DogFinderEntities")
+        public DogFinder1Entities()
+            : base("name=DogFinder1Entities")
         {
         }
     

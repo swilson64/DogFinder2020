@@ -38,44 +38,56 @@
         <th>
             Dog Type
         </th>
+        <th>
+            Allergies
+        </th>
+        <th>
+            Dangerous?
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Age)
-        </td>
-        <td>
-            @(item.Sex ? "Male" : "Female")
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FavFood)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DogStatu.StatusName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DogSize.SizeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DogType.TypeName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DogID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DogID }) |
-            @Html.ActionLink("View QR Code", "QRCode", new {id = item.DogID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Age)
+    </td>
+    <td>
+        @(item.Sex ? "Male" : "Female")
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FavFood)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DogStatu.StatusName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DogSize.SizeName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DogType.TypeName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Allergies)
+    </td>
+    <td>
+        @(item.IsDangerous ? "Yes" : "No")
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.DogID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.DogID }) |
+        @Html.ActionLink("View QR Code", "QRCode", new { id = item.DogID })
+    </td>
+</tr>
 }
 
 </table>

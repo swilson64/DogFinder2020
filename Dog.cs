@@ -24,6 +24,8 @@ namespace DogFinder
         public string Description { get; set; }
         public string FavFood { get; set; }
         public int SizeID { get; set; }
+        public string Allergies { get; set; }
+        public bool IsDangerous { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual DogStatu DogStatu { get; set; }

@@ -16,7 +16,7 @@ namespace DogFinder
 {
     public class DogsController : Controller
     {
-        private DogFinderEntities db = new DogFinderEntities();
+        private DogFinder1Entities db = new DogFinder1Entities();
 
         private static Byte[] BitmapToBytes(Bitmap img)
         {
@@ -30,7 +30,19 @@ namespace DogFinder
         public ActionResult QRCode(int id)
         {
             var thisDog = db.Dogs.First(x => x.DogID == id);
-            var qrString = "This dog is called: " + thisDog.Name + ". My Owner's Email is " + thisDog.AspNetUser.Email + ". I like to eat " + thisDog.FavFood +"." ;
+            var allergies = thisDog.Allergies.Length > 0 ? "My allergies are: " + thisDog.Allergies : "I have no allergies";
+            var userAddressRecord = db.UserAddresses.FirstOrDefault(x => x.UserID == thisDog.OwnerID);
+            var addressString = "";
+            if (userAddressRecord != null)
+            {
+                addressString = "My Owner's Address is " + userAddressRecord.FirstLine + " " + userAddressRecord.SecondLine + " " + userAddressRecord.Town + " " + userAddressRecord.PostCode;
+            }
+            else
+            {
+                addressString = "My Owner hasn't logged his address.";
+            }
+            
+            var qrString = "This dog is called: " + thisDog.Name + ". My Owner's Email is " + thisDog.AspNetUser.Email + ". I like to eat " + thisDog.FavFood + ". " + allergies + ". " + addressString + ".";
             ViewBag.DogName = thisDog.Name;
             ViewBag.qrString = qrString;
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
@@ -44,13 +56,13 @@ namespace DogFinder
         // GET: Dogs
         public async Task<ActionResult> Index()
         {
-            var dogs = db.Dogs.Include(d => d.AspNetUser).Include(d => d.DogStatu).Include(d => d.DogSize).Include(d => d.DogType);
+            var dogs = db.Dogs.Include(d => d.AspNetUser).Include(d=>d.AspNetUser.UserAddresses).Include(d => d.DogStatu).Include(d => d.DogSize).Include(d => d.DogType);
             return View(await dogs.ToListAsync());
         }
         public async Task<ActionResult> MyDogs()
         {
             var thisUser = User.Identity.GetUserId();
-            var dogs = db.Dogs.Where(x=>x.AspNetUser.Id == thisUser).Include(d => d.AspNetUser).Include(d => d.DogStatu).Include(d => d.DogSize).Include(d => d.DogType);
+            var dogs = db.Dogs.Where(x=>x.AspNetUser.Id == thisUser).Include(d => d.AspNetUser).Include(d => d.AspNetUser.UserAddresses).Include(d => d.DogStatu).Include(d => d.DogSize).Include(d => d.DogType);
             return View(await dogs.ToListAsync());
         }
 
@@ -85,7 +97,7 @@ namespace DogFinder
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "TypeID,Age,Sex,Name,StatusID,Description,FavFood,SizeID")] Dog dog)
+        public async Task<ActionResult> Create([Bind(Include = "TypeID,Age,Sex,Name,StatusID,Description,FavFood,SizeID,Allergies,IsDangerous")] Dog dog)
         {
             if (ModelState.IsValid)
             {
@@ -124,7 +136,7 @@ namespace DogFinder
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "DogID,TypeID,Age,Sex,Name,StatusID,Description,FavFood,SizeID")] Dog dog)
+        public async Task<ActionResult> Edit([Bind(Include = "DogID,TypeID,Age,Sex,Name,StatusID,Description,FavFood,SizeID,Allergies,IsDangerous")] Dog dog)
         {
             if (ModelState.IsValid)
             {
